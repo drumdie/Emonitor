@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">E-monitor</string>
+    <string name="app_detail">Detalles del terremoto</string>
+    <string name="detail_name">E-details</string>
+    <string name="Longitude_detail">Longitud</string>
+    <string name="Latitude_detail">Latitud</string>
+    <string name="richter">Richter</string>
+</resources>
