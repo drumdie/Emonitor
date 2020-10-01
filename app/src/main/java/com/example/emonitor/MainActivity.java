@@ -1,10 +1,14 @@
 package com.example.emonitor;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,10 +37,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements DownloadEqsAsyncTasks.DownloadEqsInterface {
         private ListView earthquakeListView ;
         public final static String SELECTED_EARTHQUAKE= "selected earthquake";
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.activiy_main_toolbar);
+        toolbar.setTitle(getString(R.string.app_name));
+        setSupportActionBar(toolbar);
+
 
         earthquakeListView = findViewById(R.id.earthquake_listview);
 
@@ -85,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEqsAsyncT
     public void onEqsDownloaded (ArrayList<Earthquake> eqList){ // receive argument from °delegate using interface DownloadEqsInterface
         fillEqList(eqList);
     }
+
     private void fillEqList(ArrayList<Earthquake> eqList){
         final EarthquakeAdapter eqAdapter = new EarthquakeAdapter(this, R.layout.eq_list_item, eqList);
         earthquakeListView.setAdapter(eqAdapter);
@@ -101,4 +112,5 @@ public class MainActivity extends AppCompatActivity implements DownloadEqsAsyncT
 
         });
     }
+
 }

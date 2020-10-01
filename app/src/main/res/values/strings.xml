@@ -5,4 +5,8 @@
     <string name="Longitude_detail">Longitud</string>
     <string name="Latitude_detail">Latitud</string>
     <string name="richter">Richter</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="column_scale">Escala</string>
+    <string name="column_place">Lugar</string>
+    <string name="column_detail">Detalle</string>
 </resources>
